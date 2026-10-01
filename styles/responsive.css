@@ -1,0 +1,465 @@
+/* =========================================================
+   RESPONSIVE
+   Casa dos Doces
+   ========================================================= */
+
+
+/* =========================================================
+   TABLET / NOTEBOOK
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .site-header__desktop-cta {
+    display: none;
+  }
+
+  .site-header__toggle {
+    display: grid;
+    place-items: center;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(86vw, 390px);
+    height: 100dvh;
+    padding: 7rem 2rem 2rem;
+    background: var(--cream);
+    box-shadow: -20px 0 60px rgba(43, 32, 32, .16);
+    transform: translateX(105%);
+    transition: transform .35s ease;
+  }
+
+  .site-nav.is-open {
+    transform: translateX(0);
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.35rem;
+  }
+
+  .site-nav__link {
+    font-size: 1.05rem;
+  }
+
+  .site-nav__cta {
+    width: 100%;
+    margin-top: .5rem;
+  }
+
+  .menu-backdrop {
+    position: fixed;
+    z-index: 199;
+    inset: 0;
+    background: rgba(43, 32, 32, .42);
+    backdrop-filter: blur(3px);
+  }
+
+
+  /* ---------------------------------------------------------
+     HERO
+     --------------------------------------------------------- */
+
+  .hero {
+    min-height: auto;
+    padding-block: 8rem 5rem;
+  }
+
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero__copy {
+    max-width: 760px;
+  }
+
+  .hero__visual {
+    min-height: 560px;
+    width: 100%;
+  }
+
+  .hero__image {
+    width: min(360px, 62%);
+    max-width: 360px;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    object-position: center;
+    background: transparent !important;
+  }
+
+  .hero__frame {
+    width: min(470px, 76%);
+    height: 500px;
+  }
+
+  .hero__curve {
+    width: 44%;
+    left: 2%;
+  }
+
+  .hero__float--one {
+    right: 5%;
+  }
+
+  .hero__float--two {
+    left: 3%;
+  }
+
+  .hero__scribble {
+    right: 3%;
+  }
+
+
+  /* ---------------------------------------------------------
+     CONTENT
+     --------------------------------------------------------- */
+
+  .split {
+    gap: 3rem;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .container {
+    width: min(calc(100% - 2rem), var(--container));
+  }
+
+  /* ---------------------------------------------------------
+     HEADER
+     --------------------------------------------------------- */
+
+  .site-header__inner {
+    gap: 1rem;
+  }
+
+
+  /* ---------------------------------------------------------
+     HERO
+     --------------------------------------------------------- */
+
+  .hero {
+    min-height: auto;
+    padding-block: 7.5rem 4rem;
+  }
+
+  .hero h1 {
+    max-width: 10ch;
+  }
+
+  .hero__support {
+    font-size: 1rem;
+  }
+
+  .hero__actions {
+    gap: .8rem;
+  }
+
+  .hero__visual {
+    min-height: 390px;
+    width: 100%;
+  }
+
+  .hero__image {
+    width: min(310px, 68%);
+    max-width: 310px;
+    height: auto;
+    max-height: 370px;
+    object-fit: contain;
+    object-position: center;
+    background: transparent !important;
+  }
+
+  .hero__frame {
+    width: min(390px, 84%);
+    height: 350px;
+  }
+
+  .hero__curve {
+    width: 50%;
+    left: 0;
+    top: 8%;
+  }
+
+  .hero__float--one {
+    width: 65px;
+    height: 65px;
+    right: 2%;
+    top: 5%;
+  }
+
+  .hero__float--two {
+    width: 34px;
+    height: 34px;
+    left: 2%;
+    bottom: 14%;
+  }
+
+  .hero__scribble {
+    right: 0;
+    bottom: 2%;
+    transform: scale(.8) rotate(-8deg);
+    transform-origin: right bottom;
+  }
+
+
+  /* ---------------------------------------------------------
+     GRIDS
+     --------------------------------------------------------- */
+
+  .feature-grid,
+  .contact-grid,
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature {
+    min-height: 260px;
+  }
+
+
+  /* ---------------------------------------------------------
+     SOBRE
+     --------------------------------------------------------- */
+
+  .split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .split__visual {
+    padding: .75rem;
+  }
+
+  .split__visual img {
+    height: 430px;
+  }
+
+
+  /* ---------------------------------------------------------
+     TIMELINE
+     --------------------------------------------------------- */
+
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-top: 0;
+    padding-left: 1rem;
+  }
+
+  .timeline::before {
+    top: 0;
+    bottom: 0;
+    left: 29px;
+    width: 2px;
+    height: auto;
+    right: auto;
+  }
+
+  .timeline__item {
+    padding: 0 0 2rem 4.5rem;
+  }
+
+  .timeline__dot {
+    left: 0;
+    top: 0;
+  }
+
+
+  /* ---------------------------------------------------------
+     GALERIA
+     --------------------------------------------------------- */
+
+  .gallery__item,
+  .gallery__item:nth-child(n) {
+    grid-column: span 6;
+    min-height: 250px;
+  }
+
+
+  /* ---------------------------------------------------------
+     CTA
+     --------------------------------------------------------- */
+
+  .cta {
+    padding-block: 5rem;
+  }
+
+  .cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta__actions .btn {
+    width: 100%;
+  }
+
+
+  /* ---------------------------------------------------------
+     FOOTER
+     --------------------------------------------------------- */
+
+  .site-footer__bottom {
+    flex-direction: column;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .site-header__logo img {
+    width: 155px;
+  }
+
+
+  /* ---------------------------------------------------------
+     HERO
+     --------------------------------------------------------- */
+
+  .hero {
+    padding-block: 7rem 3rem;
+  }
+
+  .hero h1 {
+    max-width: 9ch;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .hero__proof {
+    flex-wrap: wrap;
+  }
+
+  .hero__visual {
+    min-height: 330px;
+  }
+
+  .hero__image {
+    width: min(270px, 72%);
+    max-width: 270px;
+    height: auto;
+    max-height: 315px;
+    object-fit: contain;
+    object-position: center;
+    background: transparent !important;
+  }
+
+  .hero__frame {
+    width: min(330px, 88%);
+    height: 300px;
+  }
+
+  .hero__curve {
+    width: 55%;
+    left: -2%;
+  }
+
+  .hero__float--one {
+    width: 52px;
+    height: 52px;
+    right: 0;
+  }
+
+  .hero__float--two {
+    width: 28px;
+    height: 28px;
+    left: 0;
+  }
+
+  .hero__scribble {
+    right: -2%;
+    bottom: 1%;
+    transform: scale(.68) rotate(-8deg);
+  }
+
+
+  /* ---------------------------------------------------------
+     GALERIA
+     --------------------------------------------------------- */
+
+  .gallery__item,
+  .gallery__item:nth-child(n) {
+    grid-column: span 12;
+    min-height: 300px;
+  }
+
+
+  /* ---------------------------------------------------------
+     WHATSAPP
+     --------------------------------------------------------- */
+
+  .whatsapp-float {
+    right: .8rem;
+    bottom: .8rem;
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .site-header__logo img {
+    width: 140px;
+  }
+
+  .hero {
+    padding-top: 6.5rem;
+  }
+
+  .hero__visual {
+    min-height: 300px;
+  }
+
+  .hero__image {
+    width: min(235px, 72%);
+    max-width: 235px;
+    max-height: 280px;
+    background: transparent !important;
+  }
+
+  .hero__frame {
+    width: 88%;
+    height: 270px;
+  }
+
+  .hero__scribble {
+    display: none;
+  }
+
+  .feature {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-card {
+    padding: 1.35rem;
+  }
+}
