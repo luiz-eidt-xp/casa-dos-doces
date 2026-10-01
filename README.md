@@ -21,3 +21,5 @@ Landing page single-page em HTML, CSS e JavaScript puro para uma confeitaria art
 ## Nota de performance
 
 O projeto foi estruturado sem dependências JavaScript externas e com imagens lazy-loaded onde apropriado. O score final de Lighthouse depende também do servidor, cache, compressão, fontes e ambiente de publicação; portanto deve ser medido no domínio final antes da entrega em produção.
+
+> OBS: Isso é um site para uma empresa fictícia, não existe, é só uma demonstração.
