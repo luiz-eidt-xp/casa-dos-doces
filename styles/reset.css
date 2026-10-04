@@ -1,3 +1,7 @@
+/* =========================================================
+   RESET — normalização enxuta
+   ========================================================= */
+
 *,
 *::before,
 *::after {
@@ -6,7 +10,9 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--header-h);
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+  -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
 }
 
 body {
@@ -17,13 +23,19 @@ body {
   font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
 img {
-  max-width: 100%;
   height: auto;
-  display: block;
-  background-color: var(--bg-alt);
 }
 
 button,
@@ -31,11 +43,7 @@ input,
 select,
 textarea {
   font: inherit;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
+  color: inherit;
 }
 
 button {
@@ -43,7 +51,12 @@ button {
 }
 
 a {
-  color: var(--ink);
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1,
@@ -69,43 +82,26 @@ h3 {
   font-family: var(--font-title);
   font-weight: 500;
   line-height: var(--lh-title);
+  text-wrap: balance;
 }
 
-h1 {
-  font-size: var(--fs-h1);
-}
-
-h2 {
-  font-size: var(--fs-h2);
-}
-
-h3 {
-  font-size: var(--fs-h3);
-}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
 
 p {
   max-width: 68ch;
+  text-wrap: pretty;
 }
 
-a,
-button,
-input,
-select,
-textarea {
-  min-height: 44px;
+[hidden] {
+  display: none !important;
 }
 
 :focus-visible {
-  outline: 3px solid var(--ink);
+  outline: 3px solid var(--primary);
   outline-offset: 3px;
-}
-
-dialog {
-  max-width: none;
-}
-
-dialog::backdrop {
-  background: var(--overlay);
+  border-radius: 4px;
 }
 
 html.scroll-locked {

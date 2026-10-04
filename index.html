@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffaf4">
   <title>Casa dos Doces | Confeitaria artesanal em Dourados</title>
   <meta name="description" content="Casa dos Doces: confeitaria artesanal em Dourados/MS para celebrações, presentes e momentos especiais.">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Casa dos Doces | Confeitaria artesanal">
   <meta property="og:description" content="Doces artesanais feitos à mão, com cuidado e personalidade em Dourados/MS.">
   <meta property="og:image" content="imgs/og-image.webp">
@@ -14,13 +16,15 @@
   <link rel="icon" href="imgs/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap">
+  <!-- Playfair com itálico (usado no H1 e nas citações), Poppins 300–600, Dancing Script só no 600 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap">
+  <link rel="preload" as="image" href="imgs/hero.webp" fetchpriority="high">
   <link rel="stylesheet" href="styles/variables.css">
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/animations.css">
   <link rel="stylesheet" href="styles/responsive.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js')</script>
   <script src="js/whatsapp.js" defer></script>
   <script src="js/menu.js" defer></script>
   <script src="js/scroll-reveal.js" defer></script>
@@ -30,11 +34,15 @@
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
   <header class="site-header" data-header>
     <div class="container site-header__inner">
-      <a class="site-header__logo" href="#inicio" aria-label="Casa dos Doces"><img src="imgs/logo.svg" alt="Casa dos Doces" width="220" height="64"></a>
-      <button class="site-header__toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menu"><img src="imgs/icons/menu.svg" alt="" width="24" height="24"></button>
-      <nav class="site-nav" id="main-menu" data-menu aria-label="Principal" aria-hidden="true">
+      <a class="site-header__logo" href="#inicio" aria-label="Casa dos Doces, ir ao início"><img src="imgs/logo.svg" alt="Casa dos Doces" width="200" height="64"></a>
+
+      <nav class="site-nav" id="main-menu" data-menu aria-label="Principal">
+        <button class="site-nav__close" type="button" data-menu-close aria-label="Fechar menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
         <ul class="site-nav__list">
           <li><a class="site-nav__link" href="#inicio">Início</a></li>
           <li><a class="site-nav__link" href="#sobre">Sobre</a></li>
@@ -42,40 +50,49 @@
           <li><a class="site-nav__link" href="#como-funciona">Como funciona</a></li>
           <li><a class="site-nav__link" href="#faq">FAQ</a></li>
         </ul>
+        <a class="btn btn--primary site-nav__cta" href="#contato">Encomendar</a>
       </nav>
-      <a class="btn btn--primary site-header__desktop-cta" href="#contato">Encomendar</a>
+
+      <a class="btn btn--primary btn--sm site-header__desktop-cta" href="#contato">Encomendar</a>
+      <button class="site-header__toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="main-menu" aria-label="Abrir menu"><img src="imgs/icons/menu.svg" alt="" width="24" height="24"></button>
     </div>
   </header>
   <div class="menu-backdrop" data-menu-backdrop hidden></div>
 
   <main id="conteudo">
+
+    <!-- ============ HERO ============ -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="hero__float hero__float--one" aria-hidden="true"></div>
-      <div class="hero__float hero__float--two" aria-hidden="true"></div>
       <div class="container hero__grid">
         <div class="hero__copy reveal">
-          <span class="hero__badge"> Confeitaria artesanal · Dourados/MS</span>
+          <span class="hero__badge">Confeitaria artesanal · Dourados/MS</span>
           <h1 id="hero-title">Feito à mão, com <em>carinho</em> de verdade.</h1>
           <p class="hero__support">Doces pensados para transformar aniversários, encontros e grandes celebrações em memórias que também dão vontade de repetir.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#contato">Encomendar agora <span aria-hidden="true">↗</span></a>
             <a class="btn btn--outline" href="#galeria">Ver um pouco da casa <span aria-hidden="true">↓</span></a>
           </div>
-          <div class="hero__proof" aria-label="Avaliação média 4.9 e mais de 200 encomendas"><span class="hero__stars">★★★★★</span><strong>4.9</strong><span>·</span><span>+200 encomendas</span></div>
+          <p class="hero__proof">
+            <span class="hero__stars" aria-hidden="true">★★★★★</span>
+            <strong>4.9</strong>
+            <span class="hero__proof-sep" aria-hidden="true"></span>
+            <span>+200 encomendas</span>
+            <span class="sr-only">Avaliação média 4.9 de 5 e mais de 200 encomendas</span>
+          </p>
         </div>
+
         <div class="hero__visual reveal">
           <div class="hero__frame" aria-hidden="true"></div>
-          <svg class="hero__curve" viewBox="0 0 420 150" aria-hidden="true"><path d="M5 110 C80 20 155 140 225 65 S345 25 415 80"/></svg>
-          <img class="hero__image" data-parallax src="imgs/hero.webp" alt="Cupcake artesanal com cobertura rosa e morangos em uma mesa da Casa dos Doces" width="1600" height="576">
-          <div class="hero__scribble"><span>feito com afeto</span><svg viewBox="0 0 220 60" aria-hidden="true"><path d="M4 42 C45 8 82 57 121 25 S176 10 216 30"/></svg></div>
+          <img class="hero__image" data-parallax src="imgs/hero.webp" alt="Cupcake artesanal com cobertura rosa e morangos em uma mesa da Casa dos Doces" width="1600" height="576" fetchpriority="high" decoding="async">
+          <div class="hero__scribble" aria-hidden="true"><span>feito com afeto</span><svg viewBox="0 0 220 60"><path d="M4 42 C45 8 82 57 121 25 S176 10 216 30"/></svg></div>
         </div>
       </div>
     </section>
 
+    <!-- ============ SOBRE ============ -->
     <section class="section section--alt" id="sobre" aria-labelledby="sobre-title">
-      <div class="decor-dots" style="right:4%;top:12%" aria-hidden="true"></div>
       <div class="container split">
-        <div class="split__visual reveal"><img src="imgs/sobre/atelie.webp" alt="Ateliê artesanal da Casa dos Doces" width="1200" height="800" loading="lazy"></div>
+        <div class="split__visual reveal"><img src="imgs/sobre/atelie.webp" alt="Ateliê artesanal da Casa dos Doces" width="1200" height="800" loading="lazy" decoding="async"></div>
         <div class="split__copy reveal">
           <span class="section__eyebrow">De perto</span>
           <h2 id="sobre-title">Uma casa pequena, um cuidado enorme.</h2>
@@ -87,58 +104,74 @@
       </div>
     </section>
 
+    <!-- ============ DIFERENCIAIS ============ -->
     <section class="section" id="diferenciais" aria-labelledby="diferenciais-title">
-      <div class="decor-blob" style="width:280px;height:280px;right:-120px;bottom:-120px" aria-hidden="true"></div>
       <div class="container">
         <div class="section__heading reveal"><span class="section__eyebrow">O nosso jeito</span><h2 id="diferenciais-title">Pequenos detalhes. Grande diferença.</h2><p class="section__support">Uma confeitaria feita para quem percebe o cuidado no acabamento, no sabor e na forma como cada pedido chega à mesa.</p></div>
         <div class="feature-grid">
-          <article class="feature reveal"><span class="feature__number">01</span><div class="feature__icon" aria-hidden="true">✦</div><h3>Artesanal</h3><p>Cada receita é preparada em pequena escala, com atenção ao ponto, textura e acabamento.</p></article>
-          <article class="feature reveal"><span class="feature__number">02</span><div class="feature__icon" aria-hidden="true">◌</div><h3>Ingredientes</h3><p>Escolhas cuidadosas para entregar sabor equilibrado sem abrir mão da beleza.</p></article>
-          <article class="feature reveal"><span class="feature__number">03</span><div class="feature__icon" aria-hidden="true">♡</div><h3>Sob encomenda</h3><p>Você conta a ocasião; a gente transforma a ideia em uma mesa com identidade.</p></article>
+          <article class="feature reveal">
+            <div class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M18.5 16.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8z"/></svg></div>
+            <h3>Artesanal</h3>
+            <p>Cada receita é preparada em pequena escala, com atenção ao ponto, textura e acabamento.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14"/><path d="M5 19c2-4 5-7 9-9"/></svg></div>
+            <h3>Ingredientes</h3>
+            <p>Escolhas cuidadosas para entregar sabor equilibrado sem abrir mão da beleza.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></div>
+            <h3>Sob encomenda</h3>
+            <p>Você conta a ocasião; a gente transforma a ideia em uma mesa com identidade.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--blush" id="como-funciona" aria-labelledby="como-title">
+    <!-- ============ COMO FUNCIONA ============ -->
+    <section class="section section--alt" id="como-funciona" aria-labelledby="como-title">
       <div class="container">
         <div class="section__heading reveal"><span class="section__eyebrow">Sem complicação</span><h2 id="como-title">Como funciona.</h2><p class="section__support">Da primeira mensagem até a entrega, a ideia é deixar o processo leve e claro.</p></div>
-        <div class="timeline">
-          <article class="timeline__item reveal"><span class="timeline__dot" aria-hidden="true">01</span><span class="timeline__year">PASSO 01</span><h3>Você chama no WhatsApp</h3><p>Conta a ocasião, a data e o que imagina para o momento.</p></article>
-          <article class="timeline__item reveal"><span class="timeline__dot" aria-hidden="true">02</span><span class="timeline__year">PASSO 02</span><h3>A gente conversa</h3><p>Alinhamos sabor, tamanho, detalhes e possibilidades.</p></article>
-          <article class="timeline__item reveal"><span class="timeline__dot" aria-hidden="true">03</span><span class="timeline__year">PASSO 03</span><h3>Produção artesanal</h3><p>Preparamos tudo à mão, no tempo certo para sua encomenda.</p></article>
-          <article class="timeline__item reveal"><span class="timeline__dot" aria-hidden="true">04</span><span class="timeline__year">PASSO 04</span><h3>Entrega ou retirada</h3><p>Combinamos o melhor formato para você receber tudo com tranquilidade.</p></article>
-        </div>
+        <ol class="timeline">
+          <li class="timeline__item reveal"><span class="timeline__dot" aria-hidden="true">01</span><span class="timeline__year">Passo 01</span><h3>Você chama no WhatsApp</h3><p>Conta a ocasião, a data e o que imagina para o momento.</p></li>
+          <li class="timeline__item reveal"><span class="timeline__dot" aria-hidden="true">02</span><span class="timeline__year">Passo 02</span><h3>A gente conversa</h3><p>Alinhamos sabor, tamanho, detalhes e possibilidades.</p></li>
+          <li class="timeline__item reveal"><span class="timeline__dot" aria-hidden="true">03</span><span class="timeline__year">Passo 03</span><h3>Produção artesanal</h3><p>Preparamos tudo à mão, no tempo certo para sua encomenda.</p></li>
+          <li class="timeline__item reveal"><span class="timeline__dot" aria-hidden="true">04</span><span class="timeline__year">Passo 04</span><h3>Entrega ou retirada</h3><p>Combinamos o melhor formato para você receber tudo com tranquilidade.</p></li>
+        </ol>
       </div>
     </section>
 
+    <!-- ============ DEPOIMENTOS ============ -->
     <section class="section testimonials" id="depoimentos" aria-labelledby="depoimentos-title">
       <div class="container">
         <div class="section__heading reveal"><span class="section__eyebrow">Quem já provou</span><h2 id="depoimentos-title">Palavras que ficam.</h2></div>
         <div class="testimonial-grid">
-          <article class="testimonial testimonial--featured reveal"><span class="testimonial__stars">★★★★★</span><blockquote>“O doce chegou lindo, delicado e exatamente com a cara da comemoração. Foi daqueles detalhes que todo mundo comenta.”</blockquote><cite>Cliente da Casa dos Doces</cite></article>
-          <div>
-            <article class="testimonial testimonial--small reveal"><span class="testimonial__stars">★★★★★</span><blockquote>“Atendimento próximo e tudo muito caprichado.”</blockquote><cite>Cliente da Casa dos Doces</cite></article>
-            <article class="testimonial testimonial--small reveal"><span class="testimonial__stars">★★★★★</span><blockquote>“O sabor foi o destaque da mesa. Pediria de novo.”</blockquote><cite>Cliente da Casa dos Doces</cite></article>
+          <article class="testimonial testimonial--featured reveal"><span class="testimonial__stars" role="img" aria-label="Avaliação 5 de 5">★★★★★</span><blockquote>“O doce chegou lindo, delicado e exatamente com a cara da comemoração. Foi daqueles detalhes que todo mundo comenta.”</blockquote><cite>Cliente da Casa dos Doces</cite></article>
+          <div class="testimonial-stack">
+            <article class="testimonial testimonial--small reveal"><span class="testimonial__stars" role="img" aria-label="Avaliação 5 de 5">★★★★★</span><blockquote>“Atendimento próximo e tudo muito caprichado.”</blockquote><cite>Cliente da Casa dos Doces</cite></article>
+            <article class="testimonial testimonial--small reveal"><span class="testimonial__stars" role="img" aria-label="Avaliação 5 de 5">★★★★★</span><blockquote>“O sabor foi o destaque da mesa. Pediria de novo.”</blockquote><cite>Cliente da Casa dos Doces</cite></article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="galeria" aria-labelledby="galeria-title">
+    <!-- ============ GALERIA ============ -->
+    <section class="section section--alt" id="galeria" aria-labelledby="galeria-title">
       <div class="container">
         <div class="section__heading reveal"><span class="section__eyebrow">Um pouco da casa</span><h2 id="galeria-title">Feito para ser visto. Feito para ser lembrado.</h2></div>
         <div class="gallery">
-          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-01.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-01.webp" alt="Mesa de doces para celebração" loading="lazy"><figcaption class="gallery__caption">Mesa de celebração</figcaption></a></figure>
-          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-02.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-02.webp" alt="Detalhes de confeitaria artesanal" loading="lazy"><figcaption class="gallery__caption">Detalhes artesanais</figcaption></a></figure>
-          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-03.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-03.webp" alt="Doce decorado" loading="lazy"><figcaption class="gallery__caption">Feito à mão</figcaption></a></figure>
-          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-04.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-04.webp" alt="Composição de doces" loading="lazy"><figcaption class="gallery__caption">Composição</figcaption></a></figure>
-          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-05.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-05.webp" alt="Mesa preparada para evento" loading="lazy"><figcaption class="gallery__caption">Para celebrar</figcaption></a></figure>
-          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-06.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-06.webp" alt="Acabamento de doce artesanal" loading="lazy"><figcaption class="gallery__caption">Acabamento</figcaption></a></figure>
+          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-01.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-01.webp" alt="Mesa de doces para celebração" loading="lazy" decoding="async"><figcaption class="gallery__caption">Mesa de celebração</figcaption><span class="sr-only">(abre em nova aba)</span></a></figure>
+          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-02.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-02.webp" alt="Detalhes de confeitaria artesanal" loading="lazy" decoding="async"><figcaption class="gallery__caption">Detalhes artesanais</figcaption><span class="sr-only">(abre em nova aba)</span></a></figure>
+          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-03.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-03.webp" alt="Doce decorado" loading="lazy" decoding="async"><figcaption class="gallery__caption">Feito à mão</figcaption><span class="sr-only">(abre em nova aba)</span></a></figure>
+          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-04.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-04.webp" alt="Composição de doces" loading="lazy" decoding="async"><figcaption class="gallery__caption">Composição</figcaption><span class="sr-only">(abre em nova aba)</span></a></figure>
+          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-05.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-05.webp" alt="Mesa preparada para evento" loading="lazy" decoding="async"><figcaption class="gallery__caption">Para celebrar</figcaption><span class="sr-only">(abre em nova aba)</span></a></figure>
+          <figure class="gallery__item reveal"><a href="imgs/gallery/galeria-06.webp" target="_blank" rel="noopener"><img src="imgs/gallery/galeria-06.webp" alt="Acabamento de doce artesanal" loading="lazy" decoding="async"><figcaption class="gallery__caption">Acabamento</figcaption><span class="sr-only">(abre em nova aba)</span></a></figure>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" id="faq" aria-labelledby="faq-title">
+    <!-- ============ FAQ ============ -->
+    <section class="section faq-section" id="faq" aria-labelledby="faq-title">
       <div class="container">
         <div class="section__heading reveal"><span class="section__eyebrow">Antes de pedir</span><h2 id="faq-title">Perguntas frequentes.</h2></div>
         <div class="faq">
@@ -152,46 +185,51 @@
       </div>
     </section>
 
-    <section class="section contact" id="contato" aria-labelledby="contato-title">
+    <!-- ============ CONTATO ============ -->
+    <section class="section section--alt contact" id="contato" aria-labelledby="contato-title">
       <div class="container contact-grid">
-        <div class="reveal">
+        <div class="contact-main reveal">
           <div class="section__heading"><span class="section__eyebrow">Orçamento</span><h2 id="contato-title">Me conte o que você está planejando.</h2><p class="section__support">Nome e evento são obrigatórios. Data e detalhes ajudam a montar uma resposta mais precisa.</p></div>
           <form class="form" data-wa-form novalidate>
-            <div class="form__field"><label class="form__label" for="name">Nome</label><input class="form__input" id="name" name="name" type="text" maxlength="60" autocomplete="name" aria-describedby="error-name"><p class="form__error" id="error-name"></p></div>
-            <div class="form__field"><label class="form__label" for="event">Evento</label><select class="form__input" id="event" name="event" aria-describedby="error-event"><option value="">Escolha uma opção</option><option>Aniversário</option><option>Casamento</option><option>Corporativo</option><option>Presente</option><option>Outro</option></select><p class="form__error" id="error-event"></p></div>
+            <div class="form__row">
+              <div class="form__field"><label class="form__label" for="name">Nome</label><input class="form__input" id="name" name="name" type="text" maxlength="60" autocomplete="name" aria-describedby="error-name" aria-required="true"><p class="form__error" id="error-name"></p></div>
+              <div class="form__field"><label class="form__label" for="event">Evento</label><select class="form__input form__input--select" id="event" name="event" aria-describedby="error-event" aria-required="true"><option value="">Escolha uma opção</option><option>Aniversário</option><option>Casamento</option><option>Corporativo</option><option>Presente</option><option>Outro</option></select><p class="form__error" id="error-event"></p></div>
+            </div>
             <div class="form__field"><label class="form__label" for="date">Data desejada</label><input class="form__input" id="date" name="date" type="date"></div>
             <div class="form__field"><label class="form__label" for="message">Detalhes</label><textarea class="form__input" id="message" name="message" maxlength="500" rows="5" placeholder="Quantidade, sabores, cores, referências..."></textarea></div>
-            <button class="btn btn--primary" type="submit">Enviar pelo WhatsApp <span aria-hidden="true">↗</span></button>
+            <button class="btn btn--primary form__submit" type="submit">Enviar pelo WhatsApp <span aria-hidden="true">↗</span></button>
             <p class="form__status" data-form-status hidden aria-live="polite"></p>
           </form>
         </div>
         <aside class="contact-details" aria-label="Canais de atendimento">
-          <article class="contact-card reveal"><div class="contact-card__icon" aria-hidden="true">✦</div><h3>WhatsApp</h3><p>Para orçamento, dúvidas e disponibilidade, a conversa acontece de forma direta e personalizada.</p><a class="btn btn--whatsapp" data-wa="contact" href="https://wa.me/5500000000000" target="_blank" rel="noopener"><img src="imgs/icons/whatsapp.svg" alt="" width="20" height="20">Abrir WhatsApp</a></article>
-          <article class="contact-card reveal"><div class="contact-card__icon" aria-hidden="true">⌖</div><h3>Dourados e região</h3><p>Atendimento local para encomendas, entrega e retirada, conforme disponibilidade.</p></article>
-          <article class="contact-card reveal"><div class="contact-card__icon" aria-hidden="true">♡</div><h3>Resposta rápida</h3><p>Em horário comercial, a ideia é responder em até 2h.</p></article>
+          <article class="contact-card contact-card--primary reveal"><div class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 01-11.8 7L4 20l1.5-4.1A8 8 0 1120 11.5z"/></svg></div><h3>WhatsApp</h3><p>Para orçamento, dúvidas e disponibilidade, a conversa acontece de forma direta e personalizada.</p><a class="btn btn--whatsapp" data-wa="contact" href="https://wa.me/5500000000000" target="_blank" rel="noopener"><img src="imgs/icons/whatsapp.svg" alt="" width="20" height="20">Abrir WhatsApp<span class="sr-only"> (abre em nova aba)</span></a></article>
+          <article class="contact-card reveal"><div class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></div><h3>Dourados e região</h3><p>Atendimento local para encomendas, entrega e retirada, conforme disponibilidade.</p></article>
+          <article class="contact-card reveal"><div class="contact-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div><h3>Resposta rápida</h3><p>Em horário comercial, a ideia é responder em até 2h.</p></article>
         </aside>
       </div>
     </section>
 
+    <!-- ============ CTA FINAL ============ -->
     <section class="cta" aria-labelledby="cta-title">
       <div class="container cta__inner reveal">
-        <span class="eyebrow" style="color:var(--accent)">Sua próxima celebração</span>
+        <span class="eyebrow">Sua próxima celebração</span>
         <h2 id="cta-title">Tem uma ocasião especial chegando?</h2>
         <p>Conte a data, o tipo de evento e o que você imaginou. Respondo em até 2h em horário comercial.</p>
-        <div class="cta__actions"><a class="btn btn--whatsapp" data-wa="contact" href="https://wa.me/5500000000000" target="_blank" rel="noopener"><img src="imgs/icons/whatsapp.svg" alt="" width="22" height="22">Falar pelo WhatsApp</a><a class="btn btn--ghost" href="#galeria">Ver trabalhos</a></div>
+        <div class="cta__actions"><a class="btn btn--whatsapp btn--lg" data-wa="contact" href="https://wa.me/5500000000000" target="_blank" rel="noopener"><img src="imgs/icons/whatsapp.svg" alt="" width="22" height="22">Falar pelo WhatsApp<span class="sr-only"> (abre em nova aba)</span></a><a class="btn btn--ghost btn--lg" href="#galeria">Ver trabalhos</a></div>
       </div>
     </section>
   </main>
 
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 35 C180 75 330 0 520 30 S870 80 1080 30 S1280 0 1440 25 V70 H0 Z"/></svg>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 35 C180 75 330 0 520 30 S870 80 1080 30 S1280 0 1440 25 V70 H0 Z"/></svg>
   <footer class="site-footer">
     <div class="container site-footer__grid">
-      <div><a class="site-footer__logo" href="#inicio" aria-label="Voltar ao início"><img src="imgs/logo.svg" alt="Casa dos Doces" width="220" height="64"></a><p class="site-footer__muted">Confeitaria artesanal em Dourados, Mato Grosso do Sul.</p></div>
+      <div class="site-footer__brand"><a class="site-footer__logo" href="#inicio" aria-label="Voltar ao início"><img src="imgs/logo.svg" alt="Casa dos Doces" width="160" height="51" loading="lazy"></a><p class="site-footer__muted">Confeitaria artesanal em Dourados, Mato Grosso do Sul.</p></div>
       <nav aria-label="Rodapé"><ul class="site-footer__nav"><li><a href="#sobre">Sobre</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#como-funciona">Como funciona</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contato">Contato</a></li></ul></nav>
-      <div><p><a href="https://wa.me/5500000000000" data-wa="contact" target="_blank" rel="noopener">WhatsApp</a></p><p><a class="site-footer__social" href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="imgs/icons/instagram.svg" alt="" width="28" height="28">Instagram</a></p><p class="site-footer__muted">Atendemos Dourados e região · MS</p></div>
+      <div class="site-footer__contact"><p><a href="https://wa.me/5500000000000" data-wa="contact" target="_blank" rel="noopener">WhatsApp</a></p><p><a class="site-footer__social" href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="imgs/icons/instagram.svg" alt="" width="24" height="24">Instagram</a></p><p class="site-footer__muted">Atendemos Dourados e região · MS</p></div>
     </div>
     <div class="container site-footer__bottom"><span>© <span data-year></span> Casa dos Doces</span><span>Feito com amor em Dourados.</span></div>
   </footer>
-  <a class="btn btn--whatsapp whatsapp-float" data-wa="contact" href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="Falar com a Casa dos Doces pelo WhatsApp"><img src="imgs/icons/whatsapp.svg" alt="" width="22" height="22">WhatsApp</a>
+
+  <a class="btn btn--whatsapp whatsapp-float" data-wa="contact" href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="Falar com a Casa dos Doces pelo WhatsApp"><img src="imgs/icons/whatsapp.svg" alt="" width="22" height="22"><span class="whatsapp-float__label">WhatsApp</span></a>
 </body>
 </html>

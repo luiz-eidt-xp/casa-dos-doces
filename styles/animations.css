@@ -1,10 +1,62 @@
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--reveal-delay, 0ms); }
-.reveal.is-visible { opacity: 1; transform: none; }
-.faq details[open] .faq__answer { animation: faqIn .35s ease both; }
-@keyframes faqIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: none; } }
-@keyframes float { 0%,100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,-12px,0); } }
+/* =========================================================
+   ANIMAÇÕES
+   Movimento discreto: entrada suave em blocos e feedback de
+   interação. Nada roda em loop. Reveal só existe com JS ativo
+   (classe .js no <html>), então sem JS o conteúdo aparece.
+   ========================================================= */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity .7s var(--ease) var(--reveal-delay, 0ms),
+    transform .7s var(--ease) var(--reveal-delay, 0ms);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Resposta do FAQ ao abrir */
+.faq details[open] .faq__answer {
+  animation: faqIn .35s var(--ease) both;
+}
+
+@keyframes faqIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Formulário: mensagem de status entra suavemente */
+.form__status:not([hidden]) {
+  animation: faqIn .3s var(--ease) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__image {
+    transform: none !important;
+  }
+
+  .gallery__item:hover img,
+  .btn:hover {
+    transform: none;
+  }
 }

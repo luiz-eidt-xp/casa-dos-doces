@@ -1,4 +1,11 @@
+/* =========================================================
+   VARIÁVEIS — Casa dos Doces
+   Design tokens: cores, tipografia, espaçamento, raios,
+   sombras e movimento. Nada de valores soltos fora daqui.
+   ========================================================= */
+
 :root {
+  /* ---------- Cores (paleta original preservada) ---------- */
   --primary: #5b2f2f;
   --primary-dark: #3b1c20;
   --primary-soft: #7b474b;
@@ -9,14 +16,24 @@
   --bg-alt: #f5e8df;
   --surface: #ffffff;
   --ink: #2b2020;
-  --muted: #725f5c;
-  --line: rgba(91, 47, 47, .13);
+  --muted: #6b5855;
+  --line: rgba(91, 47, 47, .14);
+  --line-strong: rgba(91, 47, 47, .28);
   --overlay: rgba(43, 32, 32, .58);
-  --whatsapp: #1fbd63;
+
+  /* Tons derivados, usados quando o texto precisa de contraste AA */
+  --rose-text: #9c4a56;     /* texto pequeno em tom rosé (5.7:1 sobre creme) */
+  --danger: #a3283a;        /* mensagens de erro */
+  --whatsapp: #15814a;      /* verde escurecido p/ texto branco (AA) */
+  --whatsapp-dark: #0f6a3c;
+
+  /* ---------- Layout ---------- */
   --container: 1180px;
-  --header-h: 82px;
-  --section-py: clamp(4rem, 8vw, 7rem);
-  --section-py-lg: clamp(5rem, 12vw, 10rem);
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --header-h: 76px;
+  --section-py: clamp(4.5rem, 9vw, 7.5rem);
+
+  /* ---------- Espaçamento (escala base 8) ---------- */
   --space-1: .5rem;
   --space-2: .75rem;
   --space-3: 1rem;
@@ -25,20 +42,37 @@
   --space-6: 3rem;
   --space-7: 4rem;
   --space-8: 5rem;
-  --shadow-sm: 0 12px 35px rgba(74, 35, 35, .08);
-  --shadow-md: 0 24px 70px rgba(74, 35, 35, .13);
-  --shadow-accent: 0 18px 42px rgba(201, 123, 132, .28);
-  --shadow-button: 0 8px 24px rgba(212, 165, 116, .35);
-  --gradient-soft: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
-  --gradient-blush: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
-  --gradient-dark: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  --font-title: "Playfair Display", Georgia, serif;
-  --font-body: "Poppins", system-ui, sans-serif;
-  --font-script: "Dancing Script", cursive;
+
+  /* ---------- Raios ---------- */
+  --r-sm: .75rem;
+  --r-md: 1.25rem;
+  --r-lg: 1.75rem;
+  --r-pill: 999px;
+
+  /* ---------- Sombras (discretas, tingidas de marrom) ---------- */
+  --shadow-sm: 0 1px 2px rgba(59, 28, 32, .05), 0 8px 24px -10px rgba(59, 28, 32, .12);
+  --shadow-md: 0 2px 4px rgba(59, 28, 32, .05), 0 26px 50px -20px rgba(59, 28, 32, .24);
+  --shadow-btn: 0 1px 2px rgba(59, 28, 32, .18), 0 10px 22px -10px rgba(59, 28, 32, .45);
+
+  /* ---------- Gradientes (usados com moderação) ---------- */
+  --gradient-soft: linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 100%);
+  --gradient-dark: linear-gradient(145deg, var(--primary) 0%, var(--primary-dark) 100%);
+
+  /* ---------- Tipografia ---------- */
+  --font-title: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-script: "Dancing Script", "Segoe Script", cursive;
+
   --fs-body: 1rem;
-  --fs-h1: clamp(2.75rem, 7vw, 5.5rem);
-  --fs-h2: clamp(2rem, 4vw, 3.5rem);
-  --fs-h3: clamp(1.25rem, 2vw, 1.55rem);
+  --fs-small: .875rem;
+  --fs-h1: clamp(2.6rem, 1.5rem + 4.6vw, 4.9rem);
+  --fs-h2: clamp(1.95rem, 1.3rem + 2.5vw, 3.1rem);
+  --fs-h3: clamp(1.2rem, 1.1rem + .45vw, 1.45rem);
   --lh-body: 1.75;
-  --lh-title: 1.04;
+  --lh-title: 1.1;
+
+  /* ---------- Movimento ---------- */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur-fast: .2s;
+  --dur: .35s;
 }
